@@ -90,6 +90,7 @@ GROUP BY c.customer_id
 ORDER BY SUM(PRICE) DESC;
 
 
+
 -- Q5 
 
 SELECT c.*, SUM(PRICE) AS total_spent, CAST(o.order_time AS DATE) AS date_purchased
@@ -97,5 +98,5 @@ FROM Customers c join CustomersOrders co ON c.customer_id = co.customer_id
 join Orders o ON o.order_id = co.order_id
 join OrdersPizzas op ON op.order_id = o.order_id
 join Pizzas p on p.pizza_id = op.pizza_id
-GROUP BY c.customer_id, o.order_time
+GROUP BY c.customer_id, date_purchased
 ORDER BY SUM(PRICE) DESC;
